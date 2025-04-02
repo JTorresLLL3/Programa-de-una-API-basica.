@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda de Usuarios</title>
+</head>
+<body>
+    <h2>Búsqueda de Usuario</h2>
+    <form method="GET" action="{% url 'busqueda' %}">
+        <label for="nombre">Buscar por nombre:</label>
+        <input type="text" id="nombre" name="nombre" value="{{ request.GET.nombre }}">
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if mensaje %}
+        <p style="color: red;">{{ mensaje }}</p>
+    {% endif %}
+
+    <h3>Lista de Usuarios:</h3>
+    {% if usuarios %}
+        <ul>
+            {% for usuario in usuarios %}
+                <li>
+                    {{ usuario.nombre }} - {{ usuario.edad }} años - {{ usuario.correo }}
+                    <a href="{% url 'modificar' usuario.id %}">Modificar</a> |
+                    <a href="{% url 'eliminar' usuario.id %}">Eliminar</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay usuarios registrados.</p>
+    {% endif %}
+
+    <br>
+    <a href="{% url 'registro' %}">Registrar nuevo usuario</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Usuario</title>
+</head>
+<body>
+    <h2>Modificar Usuario</h2>
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" value="{{ usuario.nombre }}" required>
+        <br>
+        
+        <label for="edad">Edad:</label>
+        <input type="number" name="edad" value="{{ usuario.edad }}" required>
+        <br>
+
+        <label for="correo">Correo:</label>
+        <input type="email" name="correo" value="{{ usuario.correo }}" required>
+        <br>
+
+        <button type="submit">Guardar cambios</button>
+    </form>
+    
+    <br>
+    <a href="{% url 'busqueda' %}">Volver a la búsqueda</a>
+</body>
+</html>
+

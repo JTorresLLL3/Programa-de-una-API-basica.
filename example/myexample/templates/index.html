@@ -1,0 +1,26 @@
+{% extends "plantillas.html" %}
+
+{% block plantillas %}
+
+    <h1>Hola mundo</h1>
+    <p>Soy los datos que se encuentran dentro del html</p>
+    <p>{{usuario.correo}}</p>
+</p>
+<div>
+    <a href ="">
+        Nombre: {{usuario.nombre}}
+    </a>
+</div>
+
+<div>
+    <a href ="">
+        Edad: {{usuario.edad}}
+    </a>
+</div>
+
+<div>
+    <a href ="">
+        Email: {{usuario.correo}}
+    </a>
+</div>
+{% endblock %}

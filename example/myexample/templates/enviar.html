@@ -1,0 +1,12 @@
+{% extends "plantillas.html" %}
+
+{% block plantillas %}
+
+    <form action="posteo/" method="POST">
+        {% csrf_token %}
+        <input name="nombre" placeholder="Introduce tu nombre" type="text">
+        <input name="edad" placeholder="Introduce tu edad" type="text">
+        <input name="correo" placeholder="Introduce tu correo" type="text">
+        <button>Subir</button>
+    </form>
+{% endblock %}
