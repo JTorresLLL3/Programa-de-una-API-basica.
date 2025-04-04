@@ -24,24 +24,23 @@ def registro(request):
         nuevo_usuario = Usuario(nombre=nombre, edad=edad, correo=correo)
         nuevo_usuario.save()
         
-        return redirect('busqueda')  # Redirige a la búsqueda
+        return redirect('busqueda')  # Redirige a la búsqueda.
 
     return render(request, 'registro.html')
 
 # Búsqueda de usuarios
 def busqueda(request):
-    query = request.GET.get("nombre", "")  # Obtiene el nombre de la búsqueda
+    query = request.GET.get("nombre", "")  # Obtiene el nombre de la búsqueda.
     if query:
-        usuarios = Usuario.objects.filter(nombre__icontains=query)  # Busca coincidencias parciales
+        usuarios = Usuario.objects.filter(nombre__icontains=query)  # Busca coincidencias parciales.
         mensaje = "No se encontraron usuarios." if not usuarios else ""
     else:
-        usuarios = Usuario.objects.all()  # Muestra todos los usuarios si no hay búsqueda
+        usuarios = Usuario.objects.all()  # Muestra todos los usuarios si no hay búsqueda.
         mensaje = ""
 
     return render(request, "busqueda.html", {"usuarios": usuarios, "mensaje": mensaje})
 
-
-
+# Modificación de usuarios.
 def modificar_usuario(request, usuario_id):
     usuario = get_object_or_404(Usuario, id=usuario_id)
 
@@ -54,6 +53,7 @@ def modificar_usuario(request, usuario_id):
 
     return render(request, "modificar.html", {"usuario": usuario})
 
+# Eliminación de usuarios.
 def eliminar_usuario(request, usuario_id):
     usuario = get_object_or_404(Usuario, id=usuario_id)
 
