@@ -1,3 +1,9 @@
+"""
+Configuración de URLs para la aplicación de gestión de usuarios:
+- Define las rutas para las operaciones CRUD (Crear, Leer, Actualizar, Eliminar)
+- Cada ruta está asociada a una vista específica y tiene un nombre único para referencia
+"""
+
 from django.urls import path
 from . import views
 

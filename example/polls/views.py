@@ -1,3 +1,9 @@
+"""
+Este archivo contiene todas las vistas relacionadas con el modelo Usuario, incluyendo el registro, búsqueda, modificación y eliminación de usuarios. 
+Además, tiene una vista index simple para pruebas iniciales.
+
+"""
+
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect

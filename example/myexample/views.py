@@ -1,3 +1,9 @@
+"""
+Esta sección del código define vistas para registrar, buscar, modificar y eliminar usuarios desde formularios web, 
+conectándose con el modelo Usuario.
+
+"""
+
 from django.shortcuts import render, redirect
 from polls.models import Usuario
 from django.http import JsonResponse

@@ -14,10 +14,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+"""
+Esta sección del código define las rutas principales del proyecto.
+- Conecta URLs con vistas específicas de las apps 'polls' y 'myexample'.
+- Incluye rutas para ver encuestas, registrar, buscar, modificar y eliminar usuarios.
+- También habilita la interfaz de administración de Django.
+"""
+
 from django.contrib import admin
 from django.urls import include, path
-from polls import views as polls_views  # Alias para views de 'polls'
-from myexample import views as myexample_views  # Alias para views de 'myexample'
+from polls import views as polls_views
+from myexample import views as myexample_views
 
 urlpatterns = [
     path("polls/", include("polls.urls")),
@@ -27,7 +35,7 @@ urlpatterns = [
     path('busqueda/', polls_views.busqueda, name='busqueda'),
     path('modificar/<int:id>/', myexample_views.modificar_usuario, name='modificar'),
     path('eliminar/<int:id>/', myexample_views.eliminar_usuario, name='eliminar'),
-    path("", include("polls.urls")),  # Asegúrate de incluir la app
+    path("", include("polls.urls")),
 ]
 
 
